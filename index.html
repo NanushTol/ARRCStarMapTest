@@ -21,6 +21,7 @@
         width: 960px;
         height: 600px;
         border: none;
+        overflow: visible;
       }
     </style>
   </head>
@@ -30,7 +31,7 @@
       <input type="text" id="system-input" />
       <button onclick="sendToUnity()">Center</button>
     </div>
-    <iframe id="unity-iframe" src="unity.html"></iframe>
+    <iframe id="unity-iframe" src="unity.html" scrolling="no"></iframe>
     
     <script>
       function sendToUnity() {
