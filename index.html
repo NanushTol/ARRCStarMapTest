@@ -45,6 +45,7 @@
         var inputValue = document.getElementById("system-input").value;
         var iframe = document.getElementById("unity-iframe");
         iframe.contentWindow.postMessage({ command: 'CenterOnSystem', value: inputValue }, "*");
+        iframe.focus();
       }
     </script>
   </body>
