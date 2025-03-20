@@ -92,20 +92,16 @@
       }
 
       function disableUnityInput() {
-        document.removeEventListener('keydown', unityKeydownHandler, true);
-      }
-
-      function enableUnityInput() {
-        document.addEventListener('keydown', unityKeydownHandler, true);
-      }
-
-      function unityKeydownHandler(event) {
-        if (event.target.tagName === 'INPUT') {
-          event.stopPropagation();
+        if (unityInstance && unityInstance.Module) {
+          unityInstance.Module.canvas.setAttribute('tabindex', '-1');
         }
       }
 
-      document.addEventListener('keydown', unityKeydownHandler, true);
+      function enableUnityInput() {
+        if (unityInstance && unityInstance.Module) {
+          unityInstance.Module.canvas.setAttribute('tabindex', '0');
+        }
+      }
     </script>
   </body>
 </html>
