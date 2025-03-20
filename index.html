@@ -31,7 +31,7 @@
     </div>
     <div class="input-container">
       <label for="system-input">Center On System:</label>
-      <input type="text" id="system-input" />
+      <input type="text" id="system-input" onfocus="preventCanvasFocus()" />
       <button onclick="sendToUnity()">Center</button>
     </div>
     <script>
@@ -89,6 +89,10 @@
         if (unityInstance) {
           unityInstance.SendMessage('Camera Target', 'CenterOnSystem', inputValue);
         }
+      }
+
+      function preventCanvasFocus() {
+        canvas.blur();
       }
     </script>
   </body>
