@@ -92,12 +92,20 @@
       }
 
       function disableUnityInput() {
-        canvas.style.pointerEvents = 'none';
+        document.removeEventListener('keydown', unityKeydownHandler, true);
       }
 
       function enableUnityInput() {
-        canvas.style.pointerEvents = 'auto';
+        document.addEventListener('keydown', unityKeydownHandler, true);
       }
+
+      function unityKeydownHandler(event) {
+        if (event.target.tagName === 'INPUT') {
+          event.stopPropagation();
+        }
+      }
+
+      document.addEventListener('keydown', unityKeydownHandler, true);
     </script>
   </body>
 </html>
